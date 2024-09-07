@@ -14,7 +14,7 @@ type Maintainer struct {
 
 func MaintainerHandler(c echo.Context) error {
 	mntner := []Maintainer{
-		{Name: "Youne Kuu", Position: "Backend", Email: ""},
+		{Name: "y-ne", Position: "Backend", Email: ""},
 		{Name: "verryrw", Position: "Frontend", Email: ""},
 	}
 
@@ -23,8 +23,10 @@ func MaintainerHandler(c echo.Context) error {
 
 func RootHandler(c echo.Context) error {
 	resp := map[string]interface{}{
-		"name": "youne",
+		"name": "Youne",
 	}
 
 	return c.Render(http.StatusOK, "index", resp)
+
+	// return c.Render(http.StatusOK, "index", nil)
 }
