@@ -15,7 +15,7 @@ type Maintainer struct {
 func MaintainerHandler(c echo.Context) error {
 	mntner := []Maintainer{
 		{Name: "Youne Kuu", Position: "Backend", Email: ""},
-		{Name: "V R W", Position: "Frontend", Email: ""},
+		{Name: "verryrw", Position: "Frontend", Email: ""},
 	}
 
 	return c.JSON(http.StatusOK, mntner)
