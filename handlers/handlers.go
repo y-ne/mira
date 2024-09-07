@@ -20,3 +20,7 @@ func MaintainerHandler(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, mntner)
 }
+
+func RootHandler(c echo.Context) error {
+	return c.Render(http.StatusOK, "hello", "mom")
+}

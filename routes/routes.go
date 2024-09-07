@@ -6,5 +6,6 @@ import (
 )
 
 func Router(e *echo.Echo) {
+	e.GET("/", handlers.RootHandler)
 	e.GET("/maintainer", handlers.MaintainerHandler)
 }
