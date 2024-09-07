@@ -22,5 +22,9 @@ func MaintainerHandler(c echo.Context) error {
 }
 
 func RootHandler(c echo.Context) error {
-	return c.Render(http.StatusOK, "hello", "mom")
+	resp := map[string]interface{}{
+		"name": "youne",
+	}
+
+	return c.Render(http.StatusOK, "index", resp)
 }

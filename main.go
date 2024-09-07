@@ -8,21 +8,26 @@ import (
 	"github.com/y-ne/mira/routes"
 )
 
-type Template struct {
+type TemplateRenderer struct {
 	templates *template.Template
 }
 
-func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
+func (t *TemplateRenderer) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
+
+	if viewContext, isMap := data.(map[string]interface{}); isMap {
+		viewContext["reverse"] = c.Echo().Reverse
+	}
+
 	return t.templates.ExecuteTemplate(w, name, data)
 }
 
 func main() {
-	t := &Template{
+	renderer := &TemplateRenderer{
 		templates: template.Must(template.ParseGlob("public/views/*.html")),
 	}
 
 	e := echo.New()
-	e.Renderer = t
+	e.Renderer = renderer
 
 	routes.Router(e)
 
